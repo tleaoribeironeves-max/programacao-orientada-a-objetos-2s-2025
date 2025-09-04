@@ -5,11 +5,16 @@ public class Radar {
     public String localizacao;
 
     public void avaliarVelocidade(Carro carro){
-        if(carro.velocidade > this.limiteVelocidade){
+        if(carro.getVelocidade() > this.limiteVelocidade){
             //emitir notificação
-            emitirnotificacao(carro.placa,carro.velocidade);
+            emitirnotificacao(carro.getPlaca(),carro.getVelocidade());
         }
     }
+    public Radar(Integer limiteVelocidade, String localizacao){
+        this.limiteVelocidade = limiteVelocidade;
+        this.localizacao = localizacao;
+    }
+
 
     public void emitirnotificacao(String placa, Integer velocidadeObservada){
         System.out.println("Placa: "+placa);
